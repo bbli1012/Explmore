@@ -8,14 +8,13 @@ import * as Application from 'expo-application';
 import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
 import data from './sampleData.js';
 
-import TestMarker from './components/TestMarker.jsx';
-import Focus from './components/Focus.jsx';
+import TestMarker from './src/components/TestMarker.jsx';
+import Focus from './src/components/Focus.jsx';
 
 export default class App extends React.Component {
   state = {
     maps: [],
     focus: false,
-    mutli: 1,
     focusObj: {}
   }
 
@@ -25,17 +24,13 @@ export default class App extends React.Component {
   }
 
   render() {
-    let modal = 1;
     let closeFocus = e => {
-      console.log('close')
       this.setState({focus: false});
     }
 
+    //toggle focus window
     let toggleFocus = highlight => {
       // let toggle = !this.state.focus
-      // console.log(highlight);
-      // this.setState({focus: true, focusObj: highlight});
-      // console.log(toggle);
       console.log(this.state.focus);
       this.setState({focus: true, focusObj: highlight})
     }
@@ -48,11 +43,8 @@ export default class App extends React.Component {
 
     let focusWindow = null;
     if (this.state.focus == true) {
-      console.log('in focus');
-      modal = 0.5;
       focusWindow = <Focus info={this.state.focusObj} handleClose={closeFocus}/>
     } else {
-      modal = 1;
       focusWindow = null;
     };
 
@@ -66,9 +58,7 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        {/* <Image source={require('./assets/logo.png')} /> */}
         {focusWindow}
-        {/* <View style={{flex: 1}}> */}
         <MapView
         provider={PROVIDER_GOOGLE}
         region={{
@@ -78,24 +68,9 @@ export default class App extends React.Component {
           longitudeDelta: 0.04
         }}
         style={styles.mapStyle}
-        // style={{
-        //   width: Dimensions.get('window').width,
-        //   height: Dimensions.get('window').height * modal
-        // }}
         >
-        {/* <Marker
-        coordinate={{ latitude: 37.792184, longitude: -122.450599 }}
-        title={'Test Marker'}>
-          <Callout>
-            <Image source={require('./assets/logo.png')} />
-            <Image source={{ uri: "https://i.imgur.com/TkIrScD.png" }} />
-            <Text>Test callout</Text>
-          </Callout>
-          <Image source={require('./assets/logo.png')} />
-        </Marker> */}
         {renderMarkers}
         </MapView>
-        {/* </View> */}
       </View>
     );
   }

@@ -20,12 +20,16 @@ export default class Focus extends React.Component {
         heading: 0
       }
     }
-
-
   }
 
-  componentDidMount() {
-    this.setState(this.props.info);
+  // componentDidMount() {
+  //   this.setState(this.props.info);
+  // }
+
+  componentDidUpdate(prevProps, prevState){
+    if (this.props.info.id !== prevProps.info.id) {
+      this.setState(this.props.info);
+    }
   }
 
   render () {

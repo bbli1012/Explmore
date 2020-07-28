@@ -6,12 +6,12 @@ import { Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View }
 // import MapView from 'react-native-maps';
 import * as Application from 'expo-application';
 import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
-import data from '../../sampleData.js';
+import data from './sampleData.js';
 
-import TestMarker from '../components/TestMarker.jsx';
-import Focus from '../components/Focus.jsx';
+import TestMarker from './src/components/TestMarker.jsx';
+import Focus from './src/components/Focus.jsx';
 
-export default class ViewMain extends React.Component {
+export default class App extends React.Component {
   state = {
     maps: [],
     focus: false,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import * as Application from 'expo-application';
+// import * as Application from 'expo-application';
 import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
 
 

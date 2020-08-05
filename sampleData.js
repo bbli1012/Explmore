@@ -171,7 +171,4 @@ data.push(sample6);
 data.push(sample7);
 data.push(sample8);
 
-
-
-
 export default data;

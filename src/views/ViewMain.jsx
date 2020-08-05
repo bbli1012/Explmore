@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 //additions
 // import MapView from 'react-native-maps';
@@ -41,11 +41,31 @@ export default class ViewMain extends React.Component {
       )
     }
 
+    let handleUpload = () => {
+      console.log('Uploading beep boop');
+    }
+
+    let uploadRender = () => {
+      return (
+        <View style={{zIndex: 1,borderWidth:1,position:'absolute',top:30,right:20,alignSelf:'flex-end'}}>
+        <Button
+          styles={styles.buttonDef}
+          onPress={handleUpload}
+          type="outline"
+          title="Upload"
+        />
+      </View>
+      )
+    }
+
     let focusWindow = null;
+    let addSpark = null;
     if (this.state.focus == true) {
-      focusWindow = <Focus info={this.state.focusObj} handleClose={closeFocus}/>
+      focusWindow = <Focus info={this.state.focusObj} handleClose={closeFocus}/>;
+      addSpark = null;
     } else {
       focusWindow = null;
+      addSpark = uploadRender();
     };
 
     let renderMarkers;
@@ -59,6 +79,15 @@ export default class ViewMain extends React.Component {
     return (
       <View style={styles.container}>
         {focusWindow}
+        {addSpark}
+        {/* <View style={{zIndex: 1,borderWidth:1,position:'absolute',top:30,right:10,alignSelf:'flex-end'}}>
+          <Button
+            styles={styles.buttonDef}
+            onPress={handleUpload}
+            type="outline"
+            title="Upload"
+          />
+        </View> */}
         <MapView
         provider={PROVIDER_GOOGLE}
         region={{
@@ -97,6 +126,13 @@ const styles = StyleSheet.create({
     width: '100%',
     // height: '100%'
   },
+  buttonDef: {
+    position: 'relative',
+    height: 20,
+    width: 20,
+    color: "white",
+    backgroundColor: 'rgba(52, 52, 52, 0.8)'
+  }
 
   // mapStyle: {
   //   width: Dimensions.get('window').width,

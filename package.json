@@ -5,19 +5,28 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "seed": "node database/seed.js",
+    "server": "node server/index.js"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.7.1",
     "@react-navigation/stack": "^5.7.1",
     "anonymous-files": "^1.0.1",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
     "expo": "~38.0.8",
     "expo-application": "~2.2.1",
     "expo-google-sign-in": "~8.2.1",
     "expo-image-picker": "~8.3.0",
     "expo-sharing": "~8.2.1",
     "expo-status-bar": "^1.0.2",
+    "express": "^4.17.1",
+    "firebase": "7.9.0",
+    "ip": "^1.1.5",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.9.26",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
@@ -27,8 +36,7 @@
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
     "react-native-vector-icons": "^7.0.0",
-    "react-native-web": "~0.11.7",
-    "firebase": "7.9.0"
+    "react-native-web": "~0.11.7"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
